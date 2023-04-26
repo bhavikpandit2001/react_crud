@@ -1,0 +1,14 @@
+.header{
+    width: 100%;
+    background-color: #001529;
+    color:rgb(255, 255, 255, 1);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+.head-layout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:19px 10px;
+}

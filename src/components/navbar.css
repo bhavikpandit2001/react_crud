@@ -1,0 +1,13 @@
+aside{
+    width: 25%;
+    background-color: yellowgreen;
+    position: sticky;
+    height: 100vh;
+    left: 0;
+    top: 0;
+}
+.nav-container .logo{
+    text-align: center;
+    padding: 29px 10px;
+   
+}

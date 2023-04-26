@@ -1,0 +1,22 @@
+.main-div .cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+    column-gap: 10px;
+}
+.cards .card{
+    box-shadow: 0px 9.375px 23.4375px rgba(37, 42, 52, 0.07);
+}
+.cards .card .card-layout{
+    padding: 20px 10px;
+}
+@media only screen  and (max-width:1160px){
+    .main-div .cards{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media only screen  and (max-width:768px){
+    .main-div .cards{
+        grid-template-columns: 1fr ;
+    }
+}
