@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { getAllPosts, searchPosts } from '../../API/Index';
-import { Avatar, Badge, Button, Input, Tag, Typography } from 'antd';
+import { Avatar, Badge, Input, Tag, Typography } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPosts } from '../../redux/posts/postSlice';
@@ -33,7 +33,7 @@ const Posts = () => {
     return (
         <div className='posts'>
             <div className='main-div'>
-            <div style={{display: "flex", justifyContent: "space-between"}}>
+            <div style={{display: "flex", justifyContent: "space-between"}}> 
                         <Input style={{width: "30%"}} type='search' placeholder='please type text to search' value={posts.search} onChange={e => Search(e.target.value)}/>
                         <AddPost />
                 </div>

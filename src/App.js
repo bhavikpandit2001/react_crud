@@ -8,6 +8,8 @@ import Users from './components/users/Users'
 import Posts from './components/posts/Posts';
 import { useSelector } from 'react-redux';
 import Products from './components/products/Products'
+import Quotes from './components/quotes/Quotes';
+import Todos from './components/todos/Todos';
 
 function App() {
 
@@ -23,8 +25,11 @@ function App() {
               <Route path='/' element={<Home />} />
               <Route path='/login' element={<Auth />} />
               <Route path='/products' element={<Products />} />
+              <Route path='/:categoryId' element={<Products />} />
               <Route path='/users' element={<Users />} />
               <Route path='/posts' element={<Posts />} />
+              <Route path='/todos' element={<Todos />} />
+              <Route path='/quotes' element={<Quotes/>}/>
             </Routes>
           </div>
         </div>

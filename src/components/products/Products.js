@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react'
 import "./products.css"
-import { getAllProducts, searchProducts } from '../../API/Index'
-import { Button, Image, Input, message, Typography } from 'antd'
+import { getAllProducts, getProductsbyCategory, searchProducts } from '../../API/Index'
+import { Image, Input, Menu, Typography } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { setProducts } from '../../redux/products/productSlice'
 import ViewProduct from './ViewProduct'
 import EditProducts from './EditProducts'
 import AddProducts from './AddProducts'
+import { useParams } from 'react-router-dom'
+
+import CartBtn from './CartBtn'
 const Products = () => {
+    const {categoryId} = useParams()
     const dispatch = useDispatch();
     const products = useSelector((state) => state.products.list)
     console.log("products", products)
     useEffect(() => {
-        getAllProducts()
+        (categoryId ? getProductsbyCategory() : getAllProducts())
             .then(res => {
                 console.log("products", res.data.products)
                 dispatch(setProducts(res.data.products))
@@ -32,22 +36,20 @@ const Products = () => {
             console.log(error)
         })
     }
-    const Popup = () =>{
-        message.success(`item added to cart`)
-    }
     console.log(products)
     return (
         <div className='products'>
             <div className='main-div'>
                 <div style={{display: "flex", justifyContent: "space-between"}}>
-                        <Input style={{width: "30%"}} type='search' placeholder='please type text to search' value={products.search} onChange={e => Search(e.target.value)}/>
-                        <AddProducts/>
+                        <Input style={{width: "30%", height: "50px",borderRadius: "10px"}} type='search' placeholder='please type text to search' value={products.search} onChange={e => Search(e.target.value)}/>
+                        
+                        <AddProducts />
                 </div>
                 <div className='cards'>
                     {products.map(product => (
                         <div className='card'>
                             <div className='card-layout'>
-                                <Image src={product.images} />
+                                <Image src={product.thumbnail} />
                                 <div style={{ fontSize: "20px" }}>
                                     <h4>{product.title}</h4>
                                     <Typography.Text>Price: ${product.price}</Typography.Text>
@@ -66,7 +68,7 @@ const Products = () => {
                                             <ViewProduct item={product} />
                                         </div>
                                         <div>
-                                            <Button type='primary' onClick={Popup}>add to cart</Button>
+                                            <CartBtn item={product}/>
                                         </div>
                                     </div>
                                 </div>

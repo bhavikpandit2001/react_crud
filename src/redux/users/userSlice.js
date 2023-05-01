@@ -7,10 +7,9 @@ const userSlice = createSlice({
     },
     reducers:{
         setUsers: (state,{payload})=>{
-         
             state.list = payload;
-          
-        }
+        },
+        
     } 
 })
 

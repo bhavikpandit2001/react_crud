@@ -7,8 +7,12 @@
 .cards .card{
     box-shadow: 0px 9.375px 23.4375px rgba(37, 42, 52, 0.07);
 }
-.cards .card .card-layout{
-    padding: 20px 10px;
+.card div h4{
+    margin-bottom: 0;
+}
+.card div h5{
+    margin-top: 0 !important;
+    color: gray;
 }
 @media only screen  and (max-width:1160px){
     .main-div .cards{

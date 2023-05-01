@@ -1,0 +1,25 @@
+.sub-div{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+
+}
+.sub-div .left{
+    width: 50%;
+}
+.sub-div .right{
+    width: 50%;
+}
+.right .name h2{
+    margin-bottom: 10px;
+}
+.right .other{
+    display: flex;
+}
+.other div{
+    width: 50%;
+}
+.right .userlinks{
+    display: flex;
+    justify-content: space-between;
+}

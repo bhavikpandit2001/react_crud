@@ -12,7 +12,7 @@ const Navbar = () => {
         <aside >
             <div className='nav-container'>
                 <div className='logo'>
-                    <h2>CATEGORY</h2>
+                    <h2>Management</h2>
                 </div>
                 <div className='navmenu'>
                     <Menu
@@ -22,7 +22,7 @@ const Navbar = () => {
                     items= {[
                         {
                             label: " products",
-                            key: "/products"
+                            key: "/products",
                         },
                         {
                             label: "users",
@@ -31,10 +31,17 @@ const Navbar = () => {
                         {
                             label: "posts",
                             key: "/posts"
+                        },
+                        {
+                            label: "todos",
+                            key: "/todos"
+                        },
+                        {
+                            label: "quotes",
+                            key: "/quotes"
                         }
                     ]}
                     >
-
                     </Menu>
                 </div>
             </div>

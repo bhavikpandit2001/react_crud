@@ -1,0 +1,11 @@
+.icons{
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+/* .ant-modal-root css-dev-only-do-not-override-zjzpde .ant-modal-wrap .ant-modal css-dev-only-do-not-override-zjzpde{
+    width: 900px;
+} */

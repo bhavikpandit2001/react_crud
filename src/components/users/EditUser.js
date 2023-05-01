@@ -1,3 +1,4 @@
+import { EditFilled } from '@ant-design/icons'
 import { Button, Form, Input, Modal } from 'antd'
 import React, { useState } from 'react'
 import { updateUser } from '../../API/Index'
@@ -17,9 +18,9 @@ const EditUser = ({ user }) => {
   }
   return (
     <div>
-      <Button type='primary' onClick={() => {
+      <EditFilled type='primary' onClick={() => {
         setOpenModal(true)
-      }}>Edit user</Button>
+      }}/>
       <Modal open={openmodal} onCancel={() => {
         setOpenModal(false)
       }}

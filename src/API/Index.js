@@ -11,6 +11,9 @@ export const Login = async(value) =>{
 export const getAllProducts = async() =>{
     return await axios.get(`https://dummyjson.com/products`)
 }
+export const getProductsbyCategory = async(category) =>{
+    return await axios.get(`https://dummyjson.com/products/category/${category}`)
+}
 export const searchProducts = async(value) =>{
     return await axios.get(`https://dummyjson.com/products/search?q=${value}`)
 }
@@ -26,6 +29,18 @@ export const getAllUsers = async() =>{
 }
 export const searchUsers = async(value) =>{
     return await axios.get(`https://dummyjson.com/users/search?q=${value}`)
+}
+
+export const userCart = async(id) =>{
+    return await axios.get(`https://dummyjson.com/users/${id}/carts`)
+}
+
+export const userPost = async(id) =>{
+    return await axios.get(`https://dummyjson.com/users/${id}/posts`)
+}
+
+export const userTodo = async(id) =>{
+    return await axios.get(`https://dummyjson.com/users/${id}/todos`)
 }
 export const updateUser = async(value, id) =>{
     console.log("confirm", "id:", id, "title:", value)
@@ -45,6 +60,23 @@ export const updatePost = async(value, id) =>{
     return await axios.put(`https://dummyjson.com/posts/${value}`, id)
 }
 export const addPost = async(value) =>{
-    
     return await axios.post(`https://dummyjson.com/posts/add`, value)
+}
+
+export const getAllTodos = async() =>{
+    return await axios.get(`https://dummyjson.com/todos`)
+}
+
+export const deleteTodo = async(id) =>{
+    return await axios.delete(`https://dummyjson.com/todos/${id}`)
+}
+export const updateTodo = async(id, value) =>{
+    let data =  {
+        completed:value
+    }
+    return await axios.delete(`https://dummyjson.com/todos/${id}`, data)
+}
+
+export const getAllQuotes = async() =>{
+    return await axios.get(`https://dummyjson.com/quotes`)
 }

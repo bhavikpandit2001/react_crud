@@ -1,17 +1,17 @@
 import { Button, Form, Input, Typography } from 'antd'
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./auth.css"
 import { Login } from '../API/Index'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { login } from '../redux/auth/authSlice'
-
+import { login, logout } from '../redux/auth/authSlice'
 
 const Auth = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const Confirm = (value) => {
+        
         Login(value)
             .then(res => {
                 console.log(res.data)
@@ -23,6 +23,11 @@ const Auth = () => {
             })
         console.log(value)
     }
+
+    useEffect(() =>{
+        let data = localStorage.getItem("user-token")
+        data ? dispatch(login(data)) : dispatch(logout())
+    },[])
 
     return (
         <div className='login'>

@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { getAllUsers, searchUsers } from '../../API/Index'
-import { Button, Image, Input, Typography } from 'antd'
+import { Avatar, Image, Input, Table, Typography } from 'antd'
 import "./users.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { setUsers } from '../../redux/users/userSlice'
 import ViewUser from './viewUser'
 import EditUser from './EditUser'
 import AddUser from './AddUser'
+import { ProfileOutlined, UserOutlined } from '@ant-design/icons'
 
 const Users = () => {
     const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const Users = () => {
                 console.log(error)
             })
     }
+
     return (
         <div className='users'>
             <div className='main-div'>
@@ -38,33 +40,25 @@ const Users = () => {
                     <AddUser />
                 </div>
                 <div className='cards'>
-                    {users.map((user) => (
-                        <div className='card'>
-                            <div className='card-layout'>
-                                <Image src={user.image} />
-                                <div style={{ fontSize: "20px" }}>
-                                    <h4>{user.firstName} {user.maidenName} {user.lastName}</h4>
-                                    <Typography.Text>{user.email}</Typography.Text>
-                                    <Typography.Text>{user.username}</Typography.Text>
-                                    <Typography.Text style={{ marginLeft: "10px" }}>{user.age}</Typography.Text>
-                                    <div>
-                                        <Typography.Text>{user.birthDate}</Typography.Text>
+                    {users.map(user => {
+                        return (
+                            <div className='card'>
+                                <div style={{ padding: "20px" }}>
+                                    <div style={{ display: "flex", justifyContent: "center" }}>
+                                        <Avatar size={100} icon={<Image src={user.image}></Image>}></Avatar>
                                     </div>
                                     <div>
-                                        <Typography.Text >{user.address.address}{user.address.city}</Typography.Text>
+                                        <Typography.Title level={4}><UserOutlined /> {user.firstName} {user.maidenName} {user.lastName}</Typography.Title>
+                                        <Typography.Title level={5}><ProfileOutlined /> {user.username}</Typography.Title>
+                                        <Typography.Title level={5}><ProfileOutlined /> {user.email}</Typography.Title>
                                     </div>
-                                    <div style={{ display: "flex", justifyContent: "space-between", marginTop: "10px" }}>
-                                        <div>
-                                            <EditUser user={user} />
-                                        </div>
-                                        <div>
-                                            <ViewUser user={user} />
-                                        </div>
+                                    <div style={{ display: "flex", justifyContent: "space-around" }}>
+                                        <EditUser user={user} />
+                                        <ViewUser user={user} />
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        )})}
                 </div>
             </div>
         </div>

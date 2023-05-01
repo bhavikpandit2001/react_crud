@@ -9,7 +9,7 @@ const ViewPost = ({ post }) => {
       <Button type='primary' onClick={() => {
         setOpenModal(true)
       }}>View Post</Button>
-      <Modal open={openmodal} onCancel={() => {
+      <Modal open={openmodal} onCancel={() => { 
         setOpenModal(false)
       }}
         onOk={() => {

@@ -21,7 +21,7 @@ const AddProducts = () => {
   return (
     <div>
         <div>
-            <Button onClick={Open} type='primary'>Add Product</Button>
+            <Button style={{height: "50px", borderRadius: "10px"}} onClick={Open} type='primary'>Add Product</Button>
         </div>
         <Modal
         open={openmodel}
