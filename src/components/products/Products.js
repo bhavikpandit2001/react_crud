@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import "./products.css"
 import { getAllProducts, getProductsbyCategory, searchProducts } from '../../API/Index'
-import { Image, Input, Menu, Typography } from 'antd'
+import { Image, Input, Typography } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { setProducts } from '../../redux/products/productSlice'
 import ViewProduct from './ViewProduct'
@@ -42,7 +42,6 @@ const Products = () => {
             <div className='main-div'>
                 <div style={{display: "flex", justifyContent: "space-between"}}>
                         <Input style={{width: "30%", height: "50px",borderRadius: "10px"}} type='search' placeholder='please type text to search' value={products.search} onChange={e => Search(e.target.value)}/>
-                        
                         <AddProducts />
                 </div>
                 <div className='cards'>
